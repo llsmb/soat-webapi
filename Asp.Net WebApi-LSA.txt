@@ -1,0 +1,39 @@
+WEB.API disponible à partir de .NET 4.5
+dans l'idéal migrer sur .NET Core (web api et mvc dispo dans la mm librairie)
+
+OWIN
+permet de faire tourner les app sur d'autres serveurs que IIS
+
+DAPPER
+mapping objet BDD par reflexion
+
+
+WEB API penser ressources et non action
+HHTP HEAD pour vérifier l'existence d'une ressources sans la loader, on récupère seulement l'entete
+
+DDD domain driven design ?
+
+F5 : VIP -> POOL -> batterie de serveurs IIS
+
+SWAGGER
+
+types references/types valeurs
+ex : string valeur, stringbuilder reference
+
+dans une route de web api les param types valeurs sont dans l'uri et les param type references (objets complexes)
+sont dans le body
+pour modifier ce comportement il faut ajouter les attributs fromBody ou fromUri aux param dans la déclaration de la route
+
+methode d'extension
+methode statique pour factoriser un comportement basique
+convient aux tools et ne convient pas au métier
+
+taches asynchrones :
+utiliser le type Task pour faire des taches asynchrones pour libérer les thread
+
+exercices :
+créer un produit
+créer une API en PUT pour modifier un produit
+
+software craftmanship
+code smell

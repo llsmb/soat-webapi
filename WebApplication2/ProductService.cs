@@ -8,7 +8,7 @@ namespace WebApplication2
 {
     public class ProductService
     {
-        private static List<Product> listeProduits = Enumerable.Range(1, 6).Select(i=> new Product { Id = i, Libelle = $"Produit {i}" }).ToList();
+        private static List<Product> listeProduits = Enumerable.Range(1, 3).Select(i=> new Product { Id = i, Libelle = $"Produit {i}", DateCreation = DateTime.Now }).ToList();
 
        
         public IEnumerable<Product> GetAll()
@@ -21,9 +21,16 @@ namespace WebApplication2
             return listeProduits.First(p => p.Id == id);
         }
 
-        public void Add(Product p)
+        public void Add(ProductRequest pr)
         {
-            listeProduits.Add(p);
+            int idMax = listeProduits.Max(p => p.Id);
+
+            listeProduits.Add(new Product {
+                Id = idMax + 1,
+                Libelle = pr.Libelle,
+                Prix = pr.Prix,
+                DateCreation = DateTime.Now
+            });
         }
 
         public void Update(int id, Product p)

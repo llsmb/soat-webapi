@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Security;
 using System.Web.SessionState;
+using WebApplication2.App_Start;
 
 namespace WebApplication2
 {
@@ -14,12 +15,7 @@ namespace WebApplication2
 
         protected void Application_Start(object sender, EventArgs e)
         {
-            GlobalConfiguration.Configure(configuration => {                
-                configuration.Formatters.Remove(configuration.Formatters.XmlFormatter);
-                configuration.Formatters.Add(new ProductCsvFormatter());
-                configuration.MapHttpAttributeRoutes();
-            });
-
+            GlobalConfiguration.Configure(WebApiConfig.Register);            
         }
 
         protected void Session_Start(object sender, EventArgs e)

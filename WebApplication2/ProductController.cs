@@ -20,9 +20,9 @@ namespace WebApplication2
             return Ok(service.GetAll());
         }
 
-        // GET api/products/get/5
-        [Route("{id}")]
-        public async Task<IHttpActionResult> Get(int id)
+        // GET api/products/5
+        [Route("{id}:int"), HttpGet]
+        public IHttpActionResult Get(int id)
         {
             Product produit = service.GetAll().First(p => p.Id == id);
             return produit == null ? (IHttpActionResult)NotFound() : Ok(produit);
@@ -30,24 +30,28 @@ namespace WebApplication2
 
         // POST api/products
         [Route]
-        public IHttpActionResult Post(Product product)
+        public IHttpActionResult Post(ProductRequest product)
         {
-            service.Add(product);
-            return Ok(service.GetAll());
+            if (ModelState.IsValid)
+            {
+                service.Add(product);
+                return Ok(service.GetAll());
+            }
+            else return BadRequest(ModelState);
         }
 
         // PUT api/<controller>/5
-        [Route("{id}")]
-        public void Put(int id, Product p)
-        {
-            service.Update(id, p);
-            //Optimiser le renvoi
-        }
+        //[Route("{id}")]
+        //public void Put(int id, ProductRequest p)
+        //{
+        //    service.Update(id, new Product { Libelle = p.Libelle, Prix = p.Prix, DateModification = DateTime.Now });
+        //    //Optimiser le renvoi
+        //}
 
-        // DELETE api/<controller>/5
-        [Route("{id}")]
-        public void Delete(int id)
-        {
-        }
+        //// DELETE api/<controller>/5
+        //[Route("{id}")]
+        //public void Delete(int id)
+        //{
+        //}
     }
 }
