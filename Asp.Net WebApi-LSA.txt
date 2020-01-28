@@ -40,3 +40,7 @@ code smell
 
 IHttpControllerSelector 
 MessageHandler
+
+génération de token sécurisé
+JWT 
+AWS https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html

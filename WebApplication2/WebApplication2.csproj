@@ -109,6 +109,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Handlers\AuthorizationHandler.cs" />
     <Compile Include="NonZeroConstraint.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductController.cs" />

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Routing;
+using WebApplication2.Handlers;
 
 namespace WebApplication2.App_Start
 {
@@ -19,6 +20,8 @@ namespace WebApplication2.App_Start
 
             configuration.MapHttpAttributeRoutes(resolver);
 
+            configuration.MessageHandlers.Add(new AuthorizationHandler());
+            //on utilise plutôt les autorisations par l'attribut AuthorizeFilterAttribute dans le controleur
         }
     }
 }
