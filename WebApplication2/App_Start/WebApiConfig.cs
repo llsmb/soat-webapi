@@ -14,10 +14,10 @@ namespace WebApplication2.App_Start
             configuration.Formatters.Remove(configuration.Formatters.XmlFormatter);
             configuration.Formatters.Add(new ProductCsvFormatter());
 
-            //var resolver = new DefaultInlineConstraintResolver();
-            //resolver.ConstraintMap.Add("nonzero", typeof(NonZeroConstraint));
+            var resolver = new DefaultInlineConstraintResolver();
+            resolver.ConstraintMap.Add("nonzero", typeof(NonZeroConstraint));
 
-            configuration.MapHttpAttributeRoutes();
+            configuration.MapHttpAttributeRoutes(resolver);
 
         }
     }

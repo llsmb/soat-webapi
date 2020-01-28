@@ -11,8 +11,8 @@ namespace WebApplication2
     {
         public bool Match(HttpRequestMessage request, IHttpRoute route, string parameterName, IDictionary<string, object> values, HttpRouteDirection routeDirection)
         {
-            //if (parameterName == "id" && (int)values[parameterName] == 0)
-            //    return false;
+            if (parameterName == "id" && int.Parse(values[parameterName].ToString()) == 0)
+                return false;
 
             return true;
         }

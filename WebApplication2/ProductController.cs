@@ -21,7 +21,7 @@ namespace WebApplication2
         }
 
         // GET api/products/5
-        [Route("{id}:int"), HttpGet]
+        [Route("{id:nonzero}"), HttpGet]
         public IHttpActionResult Get(int id)
         {
             Product produit = service.GetAll().First(p => p.Id == id);
