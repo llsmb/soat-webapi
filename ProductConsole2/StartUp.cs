@@ -17,6 +17,8 @@ namespace ProductConsole2
             WebApiConfig.Register(config);
 
             app.UseWebApi(config);
+
+            //ajouter le gestion du resolver UnityDependancyResolver qui est déjà implémenté dans l'app web api
         }
     }
 }
