@@ -11,47 +11,49 @@ namespace WebApplication2
     [RoutePrefix("api/products")]
     public class ProductController : ApiController
     {
-        private ProductService service = new ProductService();
+        private readonly IProductService _productService;
+
+        public ProductController(IProductService productService)
+        {
+            _productService = productService;
+        }
 
         // GET api/products
         [Route]
         public IHttpActionResult Get()
         {
-            return Ok(service.GetAll());
+            return Ok(_productService.GetAll());
         }
 
         // GET api/products/5
         [Route("{id:nonzero}"), HttpGet]
         public IHttpActionResult Get(int id)
         {
-            Product produit = service.GetAll().First(p => p.Id == id);
+            Product produit = _productService.GetAll().First(p => p.Id == id);
             return produit == null ? (IHttpActionResult)NotFound() : Ok(produit);
         }
-
-        // POST api/products
+                
         [Route]
         public IHttpActionResult Post(ProductRequest product)
         {
             if (ModelState.IsValid)
             {
-                service.Add(product);
-                return Ok(service.GetAll());
+                _productService.Add(product);
+                return Ok(_productService.GetAll());
             }
             else return BadRequest(ModelState);
         }
-
-        // PUT api/<controller>/5
-        //[Route("{id}")]
-        //public void Put(int id, ProductRequest p)
-        //{
-        //    service.Update(id, new Product { Libelle = p.Libelle, Prix = p.Prix, DateModification = DateTime.Now });
-        //    //Optimiser le renvoi
-        //}
-
-        //// DELETE api/<controller>/5
-        //[Route("{id}")]
-        //public void Delete(int id)
-        //{
-        //}
+                
+        [Route("{id}")]
+        public void Put(int id, ProductRequest p)
+        {
+            _productService.Update(id, new Product { Libelle = p.Libelle, Prix = p.Prix, DateModification = DateTime.Now });
+            //Optimiser le renvoi
+        }
+                
+        [Route("{id}")]
+        public void Delete(int id)
+        {
+        }
     }
 }

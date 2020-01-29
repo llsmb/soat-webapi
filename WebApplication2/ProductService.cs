@@ -6,9 +6,9 @@ using System.Web;
 
 namespace WebApplication2
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
-        private static List<Product> listeProduits = Enumerable.Range(1, 3).Select(i=> new Product { Id = i, Libelle = $"Produit {i}", DateCreation = DateTime.Now }).ToList();
+        private List<Product> listeProduits = Enumerable.Range(1, 3).Select(i=> new Product { Id = i, Libelle = $"Produit {i}", DateCreation = DateTime.Now }).ToList();
 
        
         public IEnumerable<Product> GetAll()

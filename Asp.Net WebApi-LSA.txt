@@ -44,3 +44,8 @@ MessageHandler
 génération de token sécurisé
 JWT 
 AWS https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html
+
+ROTI roti return on time investment
+
+pour faire des tests unitaires il faut avoir au moins des methodes dédiées à une action et de l'injection de dépendance par interface pour mocker les dépendances
+comment mettre ça en place chez terdav ???
