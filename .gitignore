@@ -5,3 +5,10 @@
 *.dll
 .vs/
 WebApplication2/bin/
+Product.Test/bin/
+ProductConsole/bin/
+ProductConsole2/bin/
+WebApplication2/obj/
+Product.Test/obj/
+ProductConsole/obj/
+ProductConsole2/obj/
