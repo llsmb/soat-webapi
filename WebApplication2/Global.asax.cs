@@ -6,9 +6,9 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Security;
 using System.Web.SessionState;
-using WebApplication2.App_Start;
+using ProductSoat.App_Start;
 
-namespace WebApplication2
+namespace ProductSoat
 {
     public class Global : System.Web.HttpApplication
     {

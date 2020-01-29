@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
 
-namespace WebApplication2
+namespace ProductSoat
 {
     public interface IProductService
     {
-        void Add(ProductRequest pr);
+        bool Add(ProductRequest pr);
         Product Get(int id);
         IEnumerable<Product> GetAll();
         void Update(int id, Product p);

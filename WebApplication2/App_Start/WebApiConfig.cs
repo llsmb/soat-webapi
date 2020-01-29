@@ -4,9 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Routing;
-using WebApplication2.Handlers;
+using ProductSoat.Handlers;
 
-namespace WebApplication2.App_Start
+namespace ProductSoat.App_Start
 {
     public static class WebApiConfig
     {

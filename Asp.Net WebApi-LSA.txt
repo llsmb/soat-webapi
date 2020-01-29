@@ -47,5 +47,19 @@ AWS https://docs.aws.amazon.com/AmazonS3/latest/dev/RESTAuthentication.html
 
 ROTI roti return on time investment
 
+Unity : RegisterSingleton au lieu de RegisterType
+vérifier que pour les accès BDD la connexion est ouverte/fermée sur chaque requête et non sur l'instanciation du repo
+
 pour faire des tests unitaires il faut avoir au moins des methodes dédiées à une action et de l'injection de dépendance par interface pour mocker les dépendances
+1 test = 1 action çàd 1 assert ou un groupe d'asset liés à une action
 comment mettre ça en place chez terdav ???
+pyramide de tests
+package moq pour faire des mocks dans les tests
+
+framework de tests : MSTEST, NUNIT, XUNIT (le plus extensible)
+NCrunch outil payant avec un mois de test gratuit : live testing (test en temps réèl)
+
+
+OWIN Katana permet de faire tourner du .Net Standard sur un serveur non IIS
+
+dotpick decompiler des ddl pour voir le code

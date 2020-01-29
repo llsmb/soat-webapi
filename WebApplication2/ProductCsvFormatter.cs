@@ -7,7 +7,7 @@ using System.Net.Http.Headers;
 using System.IO;
 using System.Net.Http;
 
-namespace WebApplication2
+namespace ProductSoat
 {
     public class ProductCsvFormatter : BufferedMediaTypeFormatter
     {

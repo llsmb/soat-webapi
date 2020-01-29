@@ -1,31 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace WebApplication2
+namespace ProductSoat
 {
     [RoutePrefix("api/products")]
     public class ProductController : ApiController
     {
-        private readonly IProductService _productService;
+        private IProductService _productService;
 
         public ProductController(IProductService productService)
         {
             _productService = productService;
         }
 
-        // GET api/products
         [Route]
         public IHttpActionResult Get()
         {
             return Ok(_productService.GetAll());
         }
 
-        // GET api/products/5
         [Route("{id:nonzero}"), HttpGet]
         public IHttpActionResult Get(int id)
         {
@@ -37,9 +31,8 @@ namespace WebApplication2
         public IHttpActionResult Post(ProductRequest product)
         {
             if (ModelState.IsValid)
-            {
-                _productService.Add(product);
-                return Ok(_productService.GetAll());
+            {                
+                return _productService.Add(product) ? (IHttpActionResult) Ok(): BadRequest();
             }
             else return BadRequest(ModelState);
         }

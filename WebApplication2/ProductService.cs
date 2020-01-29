@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
 
-namespace WebApplication2
+namespace ProductSoat
 {
     public class ProductService : IProductService
     {
@@ -21,7 +21,7 @@ namespace WebApplication2
             return listeProduits.First(p => p.Id == id);
         }
 
-        public void Add(ProductRequest pr)
+        public bool Add(ProductRequest pr)
         {
             int idMax = listeProduits.Max(p => p.Id);
 
@@ -31,6 +31,8 @@ namespace WebApplication2
                 Prix = pr.Prix,
                 DateCreation = DateTime.Now
             });
+
+            return true;
         }
 
         public void Update(int id, Product p)

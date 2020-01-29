@@ -2,7 +2,7 @@ using System;
 
 using Unity;
 
-namespace WebApplication2
+namespace ProductSoat
 {
     /// <summary>
     /// Specifies the Unity configuration for the main container.
